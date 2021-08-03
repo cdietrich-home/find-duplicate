@@ -1,4 +1,4 @@
-﻿function Get-FirstDuplicateInString
+function Get-FirstDuplicateInString
 {
     <#
     .SYNOPSIS 
@@ -23,14 +23,10 @@
         for ($i = 0;  $i -lt $PassedString.Length; $i++)
         {
             $char = $PassedString[$i]
-            if ($arr.Contains($char))
+            if (-not $arr.Add($char))
             {
                 return $char
             }
-            else
-            {
-                $null = $arr.Add($char)
-            }
         }
     }
-} 
+}
