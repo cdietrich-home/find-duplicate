@@ -19,13 +19,12 @@ function Get-FirstDuplicateInString
         $arr = New-Object System.Collections.Generic.HashSet[char]
     }
     process
-    {
-        for ($i = 0;  $i -lt $PassedString.Length; $i++)
+     {
+        foreach ($char in $PassedString.ToCharArray())
         {
-            $char = $PassedString[$i]
             if (-not $arr.Add($char))
             {
-                return $char
+              return $char
             }
         }
     }
